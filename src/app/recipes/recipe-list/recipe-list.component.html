@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-xs-12">
+       <ul><label for="name">Name</label> 
+        <input type="text" name="name" id="name" style="margin-left: 4px;" [(ngModel)]="newRecipeName"></ul>
+       <ul><label for="name">Description</label> 
+        <input type="text" name="desc" id="desc" style="margin-left: 4px;" [(ngModel)]="newRecipeDesc"></ul>
+       <ul><label for="name">Image path</label> 
+        <input type="text" name="image" id="image" style="margin-left: 4px;" [(ngModel)]="newImagePath"></ul>
+        <button class="btn btn-success" (click)="onAddRecipe()">New Recipe</button>
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+
+        <app-recipe-item 
+        *ngFor="let recipeEl of recipes; let i=index"
+        [recipe]="recipeEl"
+        (recipeSelected)="onRecipeSelected(recipeEl)"></app-recipe-item>
+        <ng-content></ng-content>
+    </div>
+</div>
